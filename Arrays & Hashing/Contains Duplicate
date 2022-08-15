@@ -1,0 +1,20 @@
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        #create a hashset to store vals of duplicates
+        hashset = set()
+        
+        #now loop thru the nums array and check for duplicate vals
+        #add vals to the set
+        for i in nums:
+            #if the value is inside the hashset, return True
+            if i in hashset:
+                return True
+            #add val to the hashset if not
+            hashset.add(i)
+        # return false if not so
+        return False
+    

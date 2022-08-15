@@ -1,0 +1,21 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        #create a hashmap to store values of num in
+        prevMap = {} #val : index
+        
+        #loop thru to check index vals
+        for i, n in enumerate(nums):
+            #check difference
+            diff = target - n
+            #if difference is already in the hashmap
+            if diff in prevMap:
+                #return the index
+                return [prevMap[diff], i]
+            #if we don't find our solution, update our hashmap
+            prevMap[n] = i
+        return

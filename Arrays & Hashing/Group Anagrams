@@ -1,0 +1,45 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        #My solution:
+        #sort the letter into a key
+        #key allows us to build a list inside the dict
+        # Store index and value inside hashmap
+        
+        #create lookup dict
+        #avoid having to have if keys inside/if not append
+        lookup = defaultdict(list)
+        
+        #Create loop to sort and append vals
+        #First make into a list, then sort it, then append to a string
+        # make that into the key
+        
+        for s in strs: #for each word in string
+            #convert into a list to sort efficiently, then sort then reconvert to str
+            #if two words are the same that is their key
+            key = "".join(sorted(list(s)))
+            lookup[key].append(s)
+        
+        #so now we have our lookup that contains all the values of a list
+        # we just need to output it into a list
+        
+        #set output val to print out vals
+        output = []
+        #for each list in the dict,
+        for l in lookup.values():
+            #Append list to the output
+            output.append(l)
+        
+        return output
+    
+    #Another solution I saw
+    # ans = collections.defaultdict(list)
+    #     for i in strs:
+    #         ans[tuple(sorted(i))].append(i)
+    #     return ans.values()
+        
+         
+        
